@@ -1,3 +1,3 @@
 Blogger::Application.routes.draw do
-resources :articles, only: [:index,:show]
+resources :articles, only: [:index,:show, :new, :create]
 end
