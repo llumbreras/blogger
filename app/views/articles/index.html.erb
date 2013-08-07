@@ -1,6 +1,8 @@
 <h1><%= pluralize(@articles.count, 'Article') %></h1>
 <% @articles.each do |article| %>
 <ul>
-	<li><%= link_to article.title, article_path(article) %> - <%= article.body %></li>
+	<li><%= link_to article.title, article_path(article), class: 'article_title', id: "article_#{article.id}" %> - <%= article.body %></li>
 </ul>
 <% end %>
+<br />
+<%= link_to "Create New Article", new_article_path %>
