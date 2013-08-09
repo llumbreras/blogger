@@ -21,10 +21,10 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.find(params[:id])
 		if @article.destroy
-			alert = "Successfully deleted!"
+			flash.notice = "Successfully deleted!"
 			redirect_to articles_path
 		else
-			alert = "Unable to delete!"
+			flash.notice = "Unable to delete!"
 			redirect_to article_path(article)
 		end
 	end
@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
 		@article.update(article_params)
+		flash.notice = "Article '#{@article.title}' updated!"
 		redirect_to article_path(@article)
 	end
 
